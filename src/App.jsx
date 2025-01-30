@@ -12,7 +12,6 @@ import HomeScreen from './screens/HomeScreen.jsx'
 import CreateWorkspaceScreen from './screens/CreateWorkspaceScreen.jsx'
 import WorkspaceScreen from './screens/WorkspaceScreen.jsx'
 const App = () => {
-	//console.log(ENVIROMENT.API_URL)
 	return (
 		<div>
 			<Routes>
