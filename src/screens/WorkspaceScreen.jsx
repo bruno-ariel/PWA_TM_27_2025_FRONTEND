@@ -33,8 +33,8 @@ const WorkspaceScreen = () => {
             }
         </div>
         <div>
-            <span> añadir canales </span>
-            <Link to={`/workspace/${workspace_id}/new-channel`}>crear canales</Link>
+            <h2> añadir canales </h2>
+            <Link to={`/new-channel`}>crear un nuevo canal</Link>
         </div>
     </div>
     )

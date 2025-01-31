@@ -11,6 +11,7 @@ import ProtectedRoute from './Components/ProtectedRoute.jsx'
 import HomeScreen from './screens/HomeScreen.jsx'
 import CreateWorkspaceScreen from './screens/CreateWorkspaceScreen.jsx'
 import WorkspaceScreen from './screens/WorkspaceScreen.jsx'
+import CreateChannelScreen from './screens/CreateChannelScreen.jsx'
 const App = () => {
 	return (
 		<div>
@@ -26,6 +27,7 @@ const App = () => {
 					<Route path='/workspace/new' element={<CreateWorkspaceScreen/>}/>
 					<Route path='/workspace/:workspace_id' element={<WorkspaceScreen/>}/>
 					<Route path='/workspace/:workspace_id/:channel_id' element={<WorkspaceScreen/>}/>
+					<Route path='/channel/:workspace_id/:channel_id' element={<CreateChannelScreen/>} />
 				</Route>
 				
 			</Routes>
