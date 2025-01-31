@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const useForm = (form_initial_state) => {
-    //form_initial_state = {email_ "", password: ""}
+    
     const [form_state, setFormState] = useState(form_initial_state)
 
     const handleChangeInput = (event) =>{
@@ -9,9 +9,6 @@ const useForm = (form_initial_state) => {
             const field_name = event.target.name
             const field_value = event.target.value
             return {...prev_form_state, [field_name]: field_value}
-            //clonando consigo romper la referencia, a ese clon le cambio el valor, devuelvo ese objeto distinto 
-            // //y ahora se actualiza mi componente
-            // corchete importante porque me permite actualizar el valor de la variable
             }
         )
     }
