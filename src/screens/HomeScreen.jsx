@@ -14,7 +14,7 @@ const HomeScreen = () => {
         headers: getAuthentitedHeaders()
     })
     return (
-        <div className='slack-background'>
+        <div>
             <h1> bienvenido {/* nombre del usuario */} </h1>
             <div>
                 <h2>Tus espacios de trabajo</h2>

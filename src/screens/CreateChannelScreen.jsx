@@ -10,7 +10,7 @@ const CreateChannelScreen = () => {
 
     const handleCreateChannel = async (e) => {
         e.preventDefault()
-        const response = await fetch(ENVIROMENT.API_URL + '/api/channel', {
+        const response = await fetch(ENVIROMENT.API_URL + '/api/channel/${workspace_id}', {
             method: 'POST',
             headers: getAuthentitedHeaders(),
             body: JSON.stringify(form_state)
@@ -18,7 +18,7 @@ const CreateChannelScreen = () => {
         const data = await response.json()
         navigate('/home')
     }
-  return (
+    return (
     <div>
         <h1>Crear un nuevo canal</h1>
         <form onSubmit={handleCreateChannel}>
@@ -36,7 +36,7 @@ const CreateChannelScreen = () => {
             <button type='submit'> Crear canal </button>
         </form>
     </div>
-  )
+    )
 }
 
 export default CreateChannelScreen
