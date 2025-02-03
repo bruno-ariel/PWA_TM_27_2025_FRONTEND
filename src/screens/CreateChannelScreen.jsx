@@ -10,14 +10,13 @@ const CreateChannelScreen = () => {
 
     const handleCreateChannel = async (e) => {
         e.preventDefault()
-        const workspace_id = "1"
-        const response = await fetch(`${ENVIROMENT.API_URL}/api/channel/${workspace_id}`, {
+        const response = await fetch(ENVIROMENT.API_URL + `/api/channel/${workspace_id}`, {
             method: 'POST',
             headers: getAuthentitedHeaders(),
             body: JSON.stringify(form_state)
         })
         const data = await response.json()
-        navigate('/home')
+        navigate('/workspace')
     }
     return (
     <div>
