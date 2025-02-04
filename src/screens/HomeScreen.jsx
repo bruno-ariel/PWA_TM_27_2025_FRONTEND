@@ -14,10 +14,9 @@ const HomeScreen = () => {
         headers: getAuthentitedHeaders()
     })
     return (
-        <div>
-            <h1> bienvenido {/* nombre del usuario */} </h1>
-            <div>
-                <h2>Tus espacios de trabajo</h2>
+        <main className='home-screen'>
+            <h1> Bienvenido de vuelta {/* nombre del usuario */} </h1>
+            <div className='workspaces'>
                 <div>
                     {
                     workspace_loading
@@ -37,11 +36,11 @@ const HomeScreen = () => {
                     }
                 </div>
             </div>
-            <div>
+            <div className='create-workspace'>
                 <span> Aun no tienes espacios de trabajo ? </span>
                 <Link to="/workspace/new"> Crea un espacio de trabajo aqui </Link>
             </div>
-        </div>
+        </main>
     )
 }
 
