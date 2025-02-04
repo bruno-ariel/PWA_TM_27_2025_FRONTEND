@@ -14,36 +14,34 @@ const HomeScreen = () => {
         headers: getAuthentitedHeaders()
     })
     return (
-        <main className='home-screen'>
-            <h1>Bienvenido de vuelta {/* nombre del usuario */} </h1>
-            
-            <div className='workspaces-container'>
-                {/* Sección de Workspaces */}
-                <div className='workspaces'>
-                    {
-                        workspace_loading ? (
-                            <h2>Cargando...</h2>
-                        ) : (
-                            workspace_response.data.workspaces.length ? (
-                                workspace_response.data.workspaces.map(workspace => (
-                                    <div key={workspace._id} className="workspace-item">
-                                        <h3>{workspace.name}</h3>
-                                        <Link to={`/workspace/${workspace._id}`}>Ir a workspace</Link>
-                                    </div>
-                                ))
-                            ) : (
-                                <h2>No tienes espacios de trabajo</h2>
-                            )
-                        )
-                    }
+        <div className='home-container'>
+            <h1 className='welcome-title'>👋 ¡Hola de nuevo!</h1>
+    
+            <div className='workspaces-box'>
+                <p className='workspace-header'>Espacios de trabajo para usuario@email.com</p>
+    
+                <div className='workspace-card'>
+                    <div className='workspace-info'>
+                        <img src="workspace-logo.png" alt="Workspace Logo" className='workspace-logo'/>
+                        <div>
+                            <h3>PWI TM</h3>
+                            <p className='workspace-members'>👤 1 miembro</p>
+                        </div>
+                    </div>
+                    <button className='btn-start'>INICIAR SLACK</button>
                 </div>
-                {/* Sección para crear un nuevo Workspace */}
-                <div className='create-workspace'>
-                    <span>¿Aún no tienes espacios de trabajo?</span>
-                    <Link to="/workspace/new">Crea un espacio de trabajo aquí</Link>
-                </div>
+    
+                <p className='see-more'>Ver más ▼</p>
             </div>
-        </main>
+    
+            <div className='create-workspace-box'>
+                <div className='create-workspace-content'>
+                    <img src="illustration.png" alt="Illustration" className='workspace-illustration'/>
+                    <p>¿Quieres usar Slack con otro equipo?</p>
+                </div>
+                <button className='btn-create'>CREAR UN NUEVO ESPACIO DE TRABAJO</button>
+            </div>
+        </div>
     );
 }
 

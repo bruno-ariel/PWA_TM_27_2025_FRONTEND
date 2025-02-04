@@ -45,45 +45,126 @@ body {
     }
 }
 
-.home-screen {
+.home-container {
+    background-color: #4a154b;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    height: 100vh;
-    background-color: #f4f4f4;
 }
 
-h1 {
-    text-align: center;
+/* Título de bienvenida */
+.welcome-title {
+    font-size: 36px;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* Contenedor de las dos secciones */
-.workspaces-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 900px;
-    gap: 20px; /* Espacio entre las dos secciones */
+/* Caja de workspaces */
+.workspaces-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
 }
 
-/* Estilos de cada lado */
-.workspaces, .create-workspace {
-    flex: 1;
-    padding: 20px;
+/* Encabezado de workspaces */
+.workspace-header {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Tarjeta de workspace */
+.workspace-card {
     background: white;
-    border-radius: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para cada item de workspace */
-.workspace-item {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+/* Info del workspace */
+.workspace-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.workspace-item:last-child {
-    border-bottom: none;
+/* Logo del workspace */
+.workspace-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+/* Miembros del workspace */
+.workspace-members {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Botón de iniciar */
+.btn-start {
+    background: #4a154b;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-start:hover {
+    background: #3a0f3b;
+}
+
+/* Ver más */
+.see-more {
+    margin-top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Caja de crear workspace */
+.create-workspace-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    color: black;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin-top: 20px;
+}
+
+/* Ilustración */
+.workspace-illustration {
+    width: 60px;
+    height: 60px;
+}
+
+/* Botón de crear workspace */
+.btn-create {
+    border: 2px solid #4a154b;
+    color: #4a154b;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: none;
+}
+
+.btn-create:hover {
+    background: #4a154b;
+    color: white;
 }
 
