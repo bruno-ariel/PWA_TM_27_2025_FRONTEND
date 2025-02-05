@@ -85,6 +85,12 @@
 .auth-form a:hover {
     text-decoration: underline;
 }
+.register-link {
+    color: black;
+    text-align: center;
+    font: 1em sans-serif;
+    font-size: medium;
+}
 
 @media screen and (min-width: 750px) {
     .auth-screen {
