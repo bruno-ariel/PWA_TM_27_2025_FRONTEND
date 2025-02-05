@@ -56,8 +56,10 @@ const LoginScreen = () => {
                 <div>
                     <label htmlFor="password" className='input-container'> Ingresa tu contraseña </label>
                     <input
+                        type='password'
                         name='password'
                         id='password'
+                        placeholder='***********'
                         value={form_state.password}
                         onChange={handleChangeInput}
                     />
