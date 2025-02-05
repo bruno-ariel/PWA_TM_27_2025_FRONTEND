@@ -39,8 +39,8 @@ const HomeScreen = () => {
                 </div>
                 {/* Sección para crear un nuevo Workspace */}
                 <div className='create-workspace'>
-                    <span>¿Aún no tienes espacios de trabajo?</span>
-                    <Link to="/workspace/new">Crea un espacio de trabajo aquí</Link>
+                    <span>¿Aún no tienes espacios de trabajo? </span>
+                    <Link to="/workspace/new"> Crea un nuevo espacio de trabajo aquí</Link>
                 </div>
             </div>
         </main>

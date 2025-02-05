@@ -39,9 +39,9 @@ const LoginScreen = () => {
     return(
         <main className='auth-screen'>
             <form onSubmit={handleSubmitForm} className='auth-form'>
-                <h1 className='title'>Login</h1>
+                <h1 className='title'> Login </h1>
                 <div className='input-container'>
-                    <label htmlFor="email">ingresa tu email</label>
+                    <label htmlFor="email"> Ingresa tu email</label>
                     <input
                         name='email'
                         id='email'
@@ -54,7 +54,7 @@ const LoginScreen = () => {
                     }
                 </div>
                 <div>
-                    <label htmlFor="password" className='input-container'> ingresa tu contraseña </label>
+                    <label htmlFor="password" className='input-container'> Ingresa tu contraseña </label>
                     <input
                         name='password'
                         id='password'
@@ -70,10 +70,10 @@ const LoginScreen = () => {
                         errores.password.length ||
                         !form_state.email ||
                         !form_state.password
-                        }>iniciar sesion
+                        }> Iniciar sesion
                 </button>
-                <span> aun no tienes cuenta ? <Link to={'/register'}> registrate </Link></span>
-                <Link to={'/forgot-password'}>Olvide mi contraseña</Link>
+                <span> Aún no tienes cuenta ? <Link to={'/register'}> Regístrate </Link></span>
+                <Link to={'/forgot-password'}> Olvide mi contraseña </Link>
             </form>
         </main>
     )

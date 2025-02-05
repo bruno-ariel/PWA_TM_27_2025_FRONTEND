@@ -5,36 +5,92 @@
     font-family: sans-serif;
     
 }
-body {
-    background-color: rgb(137, 38, 170);
-}
 
-.title {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-.auth-screen{
+.auth-screen {
     padding: 16px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #6A0DAD; /* Violeta */
 }
 
+/* Contenedor del formulario */
 .auth-form {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-width: 750px;
-    flex: 1;
+    max-width: 400px;
+    width: 100%;
+    padding: 32px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Título con fuente más estilizada */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #6A0DAD; /* Violeta */
+}
+
+/* Contenedor de los inputs */
 .auth-form .input-container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
+/* Inputs estilizados */
 .auth-form .input-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto al hacer foco en los inputs */
+.auth-form .input-container input:focus {
+    border-color: #6A0DAD;
+    box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+
+/* Botón de iniciar sesión */
+.auth-form button {
+    background-color: #6A0DAD;
+    color: white;
+    padding: 10px;
     border: none;
-    border-bottom: 1px solid gray;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Efecto hover en el botón */
+.auth-form button:hover {
+    background-color: #580B91;
+}
+
+/* Enlaces estilizados */
+.auth-form span,
+.auth-form a {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.auth-form a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+.auth-form a:hover {
+    text-decoration: underline;
 }
 
 @media screen and (min-width: 750px) {
