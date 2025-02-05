@@ -62,15 +62,16 @@ h1 {
 /* Contenedor de las dos secciones */
 .workspaces-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Cambia la disposición a columna */
+    align-items: center; /* Centra los elementos */
     width: 100%;
-    max-width: 900px;
+    max-width: 600px; /* Ajusta el ancho para que no sea demasiado grande */
     gap: 20px; /* Espacio entre las dos secciones */
 }
 
-/* Estilos de cada lado */
+/* Estilos de cada lado (secciones) */
 .workspaces, .create-workspace {
-    flex: 1;
+    width: 100%; /* Ocupar todo el ancho disponible */
     padding: 20px;
     background: white;
     border-radius: 10px;
