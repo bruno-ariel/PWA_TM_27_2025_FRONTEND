@@ -73,8 +73,8 @@ const LoginScreen = () => {
                         !form_state.password
                         }> Iniciar sesion
                 </button>
-                <span> Aún no tienes cuenta ? <Link to={'/register'}> Regístrate </Link></span>
-                <Link to={'/forgot-password'}> Olvide mi contraseña </Link>
+                <span className='register-link'> Aún no tienes cuenta ? <Link to={'/register'}> Regístrate </Link></span>
+                <Link to={'/forgot-password'} className='register-link'> Olvide mi contraseña </Link>
             </form>
         </main>
     )

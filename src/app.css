@@ -92,6 +92,7 @@
     font-size: medium;
 }
 
+
 @media screen and (min-width: 750px) {
     .auth-screen {
         height: 100vh;
