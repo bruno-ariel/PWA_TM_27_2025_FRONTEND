@@ -59,7 +59,6 @@ const LoginScreen = () => {
                         type='password'
                         name='password'
                         id='password'
-                        placeholder='***********'
                         value={form_state.password}
                         onChange={handleChangeInput}
                     />
