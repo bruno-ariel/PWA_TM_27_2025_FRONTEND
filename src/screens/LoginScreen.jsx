@@ -53,8 +53,8 @@ const LoginScreen = () => {
                         errores.email.map((error, index) => <p key={index}style={{color: 'red'}}> {error}</p>)
                     }
                 </div>
-                <div>
-                    <label htmlFor="password" className='input-container'> Ingresa tu contraseña </label>
+                <div className='input-container'>
+                    <label htmlFor="password"> Ingresa tu contraseña </label>
                     <input
                         type='password'
                         name='password'
