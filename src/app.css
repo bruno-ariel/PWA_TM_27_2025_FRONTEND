@@ -72,24 +72,18 @@
 .auth-form span,
 .auth-form a {
     text-align: center;
-    color: white;
+    color: #4A154B;
     font-size: 14px;
 }
 
 .auth-form a {
     text-decoration: none;
     font-weight: bold;
-    color: white;
+    color: rgb(19, 17, 17);
 }
 
 .auth-form a:hover {
     text-decoration: underline;
-}
-.register-link {
-    color: black;
-    text-align: center;
-    font: 1em sans-serif;
-    font-size: medium;
 }
 
 
