@@ -12,10 +12,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #6A0DAD; /* Violeta */
+    background-color: #4A154B; 
 }
 
-/* Contenedor del formulario */
 .auth-form {
     display: flex;
     flex-direction: column;
@@ -28,22 +27,19 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Título con fuente más estilizada */
 .title {
     font-size: 28px;
     font-weight: bold;
     text-align: center;
-    color: #6A0DAD; /* Violeta */
+    color: #4A154B;
 }
 
-/* Contenedor de los inputs */
 .auth-form .input-container {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-/* Inputs estilizados */
 .auth-form .input-container input {
     padding: 10px;
     border: 1px solid #ccc;
@@ -52,15 +48,14 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* Efecto al hacer foco en los inputs */
+
 .auth-form .input-container input:focus {
-    border-color: #6A0DAD;
+    border-color: #4A154B;
     box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
 }
 
-/* Botón de iniciar sesión */
 .auth-form button {
-    background-color: #6A0DAD;
+    background-color: #4A154B;
     color: white;
     padding: 10px;
     border: none;
@@ -70,12 +65,10 @@
     transition: background 0.3s ease;
 }
  
-/* Efecto hover en el botón */
 .auth-form button:hover {
-    background-color: #580B91;
+    background-color: #4A154B;
 }
 
-/* Enlaces estilizados */
 .auth-form span,
 .auth-form a {
     text-align: center;
