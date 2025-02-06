@@ -24,7 +24,7 @@ const HomeScreen = () => {
                         workspace_loading ? (
                             <h2>Cargando...</h2>
                         ) : (
-                            workspace_response.data.workspaces.length ? (
+                            workspace_response.data.workspaces.length > 0? (
                                 workspace_response.data.workspaces.map(workspace => (
                                     <div key={workspace._id} className="workspace-item">
                                         <h3>{workspace.name}</h3>
