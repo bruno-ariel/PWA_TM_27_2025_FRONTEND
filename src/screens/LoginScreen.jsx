@@ -5,29 +5,42 @@ import { Link , useNavigate } from 'react-router-dom'
 const LoginScreen = () => {
     const navigate = useNavigate()
     const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
-    const url = new URLSearchParams(window.location.search) // constructor o clase, nos permite manipular la url
+    const url = new URLSearchParams(window.location.search) 
     if(url.get('verified')){
         alert('tu cuenta ha sido verificada')
     }
     const handleSubmitForm = async (e) => {
-        try{
-            e.preventDefault()
-            const response = await fetch( ENVIROMENT.API_URL + '/api/auth/login', {
+        try {
+            e.preventDefault();
+            const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-            },
+                },
                 body: JSON.stringify(form_state)
-        })
-            const data = await response.json()
-            console.log(data)
-            sessionStorage.setItem('access_token', data.data.access_token)
-            navigate('/home')
+            });
+    
+            const data = await response.json();
+            console.log("Respuesta del servidor:", data);
+    
+            if (!response.ok) {
+                alert(data.message || "Error al iniciar sesión");
+                return;
+            }
+    
+            if (!data.data || !data.data.access_token) {
+                alert("No se recibió el token");
+                return;
+            }
+    
+            sessionStorage.setItem('access_token', data.data.access_token);
+            navigate('/home');
+        } catch (error) {
+            console.error("Error en la solicitud:", error);
+            alert("Error al conectar con el servidor");
         }
-        catch(error){
-            console.error(' error al loguear ', error)
-        }
-    }
+    };
+    
     const errores = {
         email: [],
         password: []

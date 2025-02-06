@@ -79,7 +79,6 @@
 .auth-form a {
     text-decoration: none;
     font-weight: bold;
-    color: rgb(19, 17, 17);
 }
 
 .auth-form a:hover {
@@ -109,26 +108,26 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Contenedor de las dos secciones */
+
 .workspaces-container {
     display: flex;
-    flex-direction: column; /* Cambia la disposición a columna */
-    align-items: center; /* Centra los elementos */
+    flex-direction: column; 
+    align-items: center;
     width: 100%;
-    max-width: 600px; /* Ajusta el ancho para que no sea demasiado grande */
-    gap: 20px; /* Espacio entre las dos secciones */
+    max-width: 600px; 
+    gap: 20px; 
 }
 
-/* Estilos de cada lado (secciones) */
+
 .workspaces, .create-workspace {
-    width: 100%; /* Ocupar todo el ancho disponible */
+    width: 100%; 
     padding: 20px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para cada item de workspace */
+
 .workspace-item {
     padding: 10px;
     border-bottom: 1px solid #ddd;
