@@ -19,24 +19,26 @@ const WorkspaceScreen = () => {
     })
     
     return (
-    <div>
-        {
-            channels_loading 
-            ? <h2>cargando</h2>
-            : <ChannelsList channel_list={channels_data.data.channels} workspace_id={workspace_id}/>
-        }
         <div>
             {
-                channel_id
-                ? <Channel workspace_id={workspace_id} channel_id={channel_id}/>
-                : <h2> aun no hay canales </h2>
+                channels_loading 
+                ? <h2>Cargando...</h2>
+                : <ChannelsList channel_list={channels_data?.data?.channels} workspace_id={workspace_id}/>
             }
+            <div>
+                {
+                    channels_data?.data?.channels?.length > 0 
+                    ? (channel_id 
+                        ? <Channel workspace_id={workspace_id} channel_id={channel_id}/>
+                        : <h2>Selecciona un canal para verlo</h2>)
+                    : <h2>Aún no hay canales</h2>
+                }
+            </div>
+            <div>
+                <span> Añade un nuevo canal </span>
+                <Link to={`/channel/new`}>Crear un nuevo canal</Link>
+            </div>
         </div>
-        <div>
-            <span> Añade un nuevo canal </span>
-            <Link to={`/channel/new`}>crear un nuevo canal</Link>
-        </div>
-    </div>
     )
 }
 
