@@ -22,7 +22,7 @@ const WorkspaceScreen = () => {
         <div>
             {
                 channels_loading 
-                ? <h2>Cargando...</h2>
+                ? <h3>Cargando...</h3>
                 : <ChannelsList channel_list={channels_data?.data?.channels} workspace_id={workspace_id}/>
             }
             <div>
@@ -30,8 +30,8 @@ const WorkspaceScreen = () => {
                     channels_data?.data?.channels?.length > 0 
                     ? (channel_id 
                         ? <Channel workspace_id={workspace_id} channel_id={channel_id}/>
-                        : <h2>Selecciona un canal para verlo</h2>)
-                    : <h2>Aún no hay canales</h2>
+                        : <h3>Selecciona un canal para verlo</h3>)
+                    : <h3>Aún no hay canales</h3>
                 }
             </div>
             <div>
