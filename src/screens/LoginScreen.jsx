@@ -34,13 +34,19 @@ const LoginScreen = () => {
             }
     
             sessionStorage.setItem('access_token', data.data.access_token);
-            navigate('/home');
+            
+            useEffect(() => {
+                if (sessionStorage.getItem('access_token')) {
+                    navigate('/home');
+                }
+            }, []);
+            
+
         } catch (error) {
             console.error("Error en la solicitud:", error);
             alert("Error al conectar con el servidor");
         }
-    };
-    
+    };    
     const errores = {
         email: [],
         password: []
