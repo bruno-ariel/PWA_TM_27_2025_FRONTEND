@@ -137,3 +137,82 @@ h1 {
     border-bottom: none;
 }
 
+.workspace-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2f3136;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.channels-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.channel-link {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.channel-link:hover {
+    background-color: #40444b;
+    border-radius: 5px;
+}
+
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #36393f;
+    color: white;
+    padding: 20px;
+}
+
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.messages-container {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.message-form {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #40444b;
+}
+
+.message-form input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.message-form button {
+    padding: 10px;
+    background: #5865f2;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
