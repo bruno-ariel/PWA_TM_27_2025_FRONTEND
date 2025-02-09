@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import ENVIROMENT from '../utils/constants/enviroments'
@@ -113,5 +113,37 @@ const Channel = ({ workspace_id, channel_id }) => {
         </div>
     );
 }
+const [messages, setMessages] = useState ([]);
+const { data: channel_data, loading: channel_loading } = useFetch(
+    ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`,
+    {
+        method: "GET",
+        headers: getAuthentitedHeaders(),
+    }
+);
+
+useEffect(() => {
+    if (channel_data?.data?.messages) {
+        setMessages(channel_data.data.messages);
+    }
+}, [channel_data]);
+
+// Polling cada 3 segundos
+useEffect(() => {
+    const interval = setInterval(async () => {
+        const response = await fetch(
+            ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`,
+            {
+                method: "GET",
+                headers: getAuthentitedHeaders(),
+            }
+        );
+        const updatedData = await response.json();
+        setMessages(updatedData.data.messages);
+    }, 3000);
+
+    return () => clearInterval(interval);
+}, [workspace_id, channel_id]);
+
 
 export default WorkspaceScreen;
