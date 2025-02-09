@@ -217,3 +217,74 @@ h1 {
     cursor: pointer;
 }
 
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #121217; /* Color oscuro de fondo */
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor del formulario */
+form {
+    background-color: #1a1d21;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Estilos de la entrada */
+input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #2684ff;
+    background-color: #1a1d21;
+    color: #ffffff;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Placeholder estilo Slack */
+input::placeholder {
+    color: #a0a0a0;
+}
+
+/* Contador de caracteres */
+input + span {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #a0a0a0;
+}
+
+/* Botón */
+button {
+    width: 100%;
+    background-color: #4a4d52;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+/* Efecto hover en botón */
+button:hover {
+    background-color: #5a5d62;
+}
