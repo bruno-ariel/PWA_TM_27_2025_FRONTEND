@@ -76,26 +76,33 @@ const Channel = ({ workspace_id, channel_id }) => {
     const { form_state, handleChangeInput } = useForm({ content: "" });
 
     useEffect(() => {
-        if (channel_data?.data?.messages) {
-            setMessages(channel_data.data.messages);
-        }
-    }, [channel_data]);
-
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            const response = await fetch(
-                ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`,
-                {
-                    method: "GET",
-                    headers: getAuthentitedHeaders(),
+        const fetchMessages = async () => {
+            try {
+                const response = await fetch(
+                    ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`,
+                    {
+                        method: "GET",
+                        headers: getAuthentitedHeaders(),
+                    }
+                );
+                const updatedData = await response.json();
+                
+                // Solo actualizar si hay mensajes nuevos
+                if (JSON.stringify(updatedData.data.messages) !== JSON.stringify(messages)) {
+                    setMessages(updatedData.data.messages);
                 }
-            );
-            const updatedData = await response.json();
-            setMessages(updatedData.data.messages);
-        }, 3000);
-
+            } catch (error) {
+                console.error("Error al obtener mensajes:", error);
+            }
+        };
+    
+        fetchMessages(); // Cargar mensajes al montar el componente
+    
+        const interval = setInterval(fetchMessages, 3000);
+    
         return () => clearInterval(interval);
-    }, [workspace_id, channel_id]);
+    }, [workspace_id, channel_id, messages]);
+    
 
 
     const handleSubmitNewMessage = async (e) => {
