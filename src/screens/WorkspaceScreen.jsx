@@ -28,7 +28,7 @@ const WorkspaceScreen = () => {
                         workspace_id={workspace_id} 
                     />
                 )}
-                <Link className="add-channel" to={`/channel/new`}>
+                <Link className="add-channel" to={`/workspace/${workspace_id}/create-channel`}>
                     + Añadir Canal
                 </Link>
             </aside>
