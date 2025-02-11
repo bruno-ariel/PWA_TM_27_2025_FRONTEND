@@ -285,10 +285,26 @@ h1 {
     background-color: #6d1f74;
 }
 .btn-modal {
-    background-color: #eae3eb;
-    color: #0c0c0c;
+    background-color: #6a0dad; /* Morado más vibrante */
+    color: #ffffff; /* Texto blanco */
     font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
     border-radius: 8px;
-    width: 100px;
-    height: 50px;    
+    width: 120px;
+    height: 45px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-modal:hover {
+    background-color: #5a0cb3; /* Oscurece un poco en hover */
+    transform: scale(1.05);
+}
+
+.btn-modal:active {
+    background-color: #4a0a99; /* Más oscuro al hacer clic */
+    transform: scale(0.98);
 }
