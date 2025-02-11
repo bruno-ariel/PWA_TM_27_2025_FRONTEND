@@ -50,7 +50,7 @@ const WorkspaceScreen = () => {
                 )}
                 {/* Botón para abrir el modal */}
                 <button 
-                    className="add-channel" 
+                    className="btn-modal" 
                     onClick={() => setShowModal(true)}
                 >
                     + Añadir Canal

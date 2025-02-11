@@ -284,3 +284,11 @@ h1 {
 .modal-content button:hover {
     background-color: #6d1f74;
 }
+.btn-modal {
+    background-color: #eae3eb;
+    color: #0c0c0c;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 8px;
+    width: 40px;
+    height: 20px;    
+}

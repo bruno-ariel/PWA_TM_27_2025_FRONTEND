@@ -11,7 +11,7 @@ const HomeScreen = () => {
         data: workspace_response,
         error: workspace_error,
         loading: workspace_loading,
-        refetch // ⬅️ Agregado para recargar workspaces después de la creación
+        refetch 
     } = useFetch(ENVIROMENT.API_URL + '/api/workspace', {
         method: 'GET',
         headers: getAuthentitedHeaders()
@@ -66,7 +66,7 @@ const HomeScreen = () => {
                 {/* Sección para crear un nuevo Workspace */}
                 <div className='create-workspace'>
                     <span>¿Aún no tienes espacios de trabajo? </span>
-                    <button onClick={() => setShowModal(true)}>Crear espacio de trabajo</button>
+                    <button className='btn-modal' onClick={() => setShowModal(true)}>Crea un workspace</button>
 
                     <Modal show={showModal} onClose={() => setShowModal(false)}> {/* ⬅️ Cambié `show` por `isOpen` */}
                         <h2 className="text-lg font-bold">Crear un nuevo workspace</h2>

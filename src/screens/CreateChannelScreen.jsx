@@ -24,7 +24,6 @@ const CreateChannelScreen = () => {
             if (response.ok) {
                 navigate(`/workspace/${workspace_id}`)
             } else {
-                // Maneja el error, por ejemplo, muestra un mensaje
                 console.error('Error creando canal:', data.message)
             }
         } catch (error) {
