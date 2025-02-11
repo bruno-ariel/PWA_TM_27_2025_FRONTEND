@@ -35,8 +35,8 @@ const LoginScreen = () => {
     
             sessionStorage.setItem('access_token', data.data.access_token);
     
-            console.log("🔄 Redirigiendo a /home...");
-            navigate('/home');  // 🚀 Aquí debería redirigir automáticamente
+            console.log(" Redirigiendo a home...");
+            navigate('/home');
     
         } catch (error) {
             console.error("Error en la solicitud:", error);
