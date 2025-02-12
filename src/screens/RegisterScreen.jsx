@@ -41,10 +41,10 @@ const RegisterScreen = () => {
 	form_state.username && form_state.username.length > 30 && errores.username.push("El límite de caracteres es 30")
 	form_state.username && form_state.username.length < 5 && errores.username.push("El mínimo de caracteres es 5")
 	return (
-		<div>
-			<img src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" alt="img-slack" className="icon-slack" />
-			<h1> Registrarse </h1>
-			
+		<div className="container-register">
+			<img src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" alt="img-slack" className="img-slack-register"/>
+			<h1 className="title-register"> Primero introduce tu e-mail, un nombre de usuario y una contraseña </h1>
+			<h3> Te sugerimos que uses la <bolt> direccion de correo electronico que usas en tu trabajo</bolt></h3>
 			<form onSubmit={handleSubmitForm}>
 				<div>
 					<label htmlFor="username">Ingresa tu nombre de usuario:</label>
@@ -59,7 +59,7 @@ const RegisterScreen = () => {
 				<div>
 					<label htmlFor="password">Ingrese su contraseña:</label>
 					<input name='password' id='password' value={form_state.password} onChange={handleChangeInput} />
-					<button type='submit' disabled={errores.email.length > 0 || errores.password.length || !form_state.email || !form_state.password}>Crear usuario</button>
+					<button type='submit' disabled={errores.email.length > 0 || errores.password.length || !form_state.email || !form_state.password}>Completar registro</button>
 					{errores.password?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
 				</div>
 			</form>
