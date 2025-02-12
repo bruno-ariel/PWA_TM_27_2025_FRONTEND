@@ -5,6 +5,7 @@ import ENVIROMENT from '../utils/constants/enviroments'
 import { getAuthentitedHeaders } from '../fetching/customHeaders'
 import useForm from '../hooks/useForm'
 import Modal from '../Components/Modal'
+import { addIcon } from '../Icons'
 
 const WorkspaceScreen = () => {
     const { workspace_id, channel_id } = useParams();
@@ -52,8 +53,8 @@ const WorkspaceScreen = () => {
                 <button 
                     className="btn-modal" 
                     onClick={() => setShowModal(true)}
-                >
-                    + Añadir Canal
+                    addIcon >
+                    agregar canales
                 </button>
             </aside>
             <main className="chat-container">
