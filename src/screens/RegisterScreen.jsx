@@ -44,20 +44,20 @@ const RegisterScreen = () => {
 		<div className="container-register">
 			<img src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" alt="img-slack" className="img-slack-register"/>
 			<h1 className="title-register"> Primero introduce tu e-mail, un nombre de usuario y una contraseña </h1>
-			<h3> Te sugerimos que uses la <bolt> direccion de correo electronico que usas en tu trabajo</bolt></h3>
+			<h3> Te sugerimos que uses la direccion de correo electronico que usas en tu trabajo</h3>
 			<form className="form-register" onSubmit={handleSubmitForm}>
 				<div>
-					<label htmlFor="username">Ingresa tu nombre de usuario:</label>
+					<label htmlFor="username">Nombre de usuario</label>
 					<input name='username' id='username' value={form_state.username} onChange={handleChangeInput} />
 					{errores.username?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
 				</div>
 				<div>
-					<label htmlFor="email">Ingresa tu email:</label>
+					<label htmlFor="email">Email</label>
 					<input name='email' id='email' placeholder='joedoe@gmail' value={form_state.email} onChange={handleChangeInput} />
 					{errores.email?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
 				</div>
 				<div>
-					<label htmlFor="password">Ingrese su contraseña:</label>
+					<label htmlFor="password">Contraseña</label>
 					<input name='password' id='password' value={form_state.password} onChange={handleChangeInput} />
 					<button type='submit' disabled={errores.email.length > 0 || errores.password.length || !form_state.email || !form_state.password}>Completar registro</button>
 					{errores.password?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
