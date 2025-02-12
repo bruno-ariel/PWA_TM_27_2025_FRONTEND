@@ -43,7 +43,7 @@ const HomeScreen = () => {
 
     return (
         <main className='home-screen'>
-            <h1>¡<HandIcon/> Bienvenido de vuelta {sessionStorage.getItem('username')}!</h1>
+            <h1><HandIcon className='hand-icon'/> Bienvenido de vuelta { workspace_response?.data?.user?.username }</h1>
             <div className='workspaces-container'>
                 {/* Sección de Workspaces */}
                 <div className='workspaces'>
