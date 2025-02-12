@@ -1,3 +1,3 @@
-import { RiAddBoxFill as addIcon } from "react-icons/ri";
+import { RiAddBoxFill as AddIcon } from "react-icons/ri";
 
-export { addIcon }
+export { AddIcon }
