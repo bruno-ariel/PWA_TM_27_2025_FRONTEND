@@ -5,6 +5,7 @@ import { useFetch } from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
 import Modal from '../Components/Modal'
 import useForm from '../hooks/useForm'
+import { AddIcon , HandIcon } from '../Icons'
 
 const HomeScreen = () => {
     const {
@@ -42,8 +43,7 @@ const HomeScreen = () => {
 
     return (
         <main className='home-screen'>
-            <h1>Bienvenido de vuelta {/* nombre del usuario */} </h1>
-
+            <h1>¡<HandIcon/> Bienvenido de vuelta {sessionStorage.getItem('username')}!</h1>
             <div className='workspaces-container'>
                 {/* Sección de Workspaces */}
                 <div className='workspaces'>
@@ -66,7 +66,7 @@ const HomeScreen = () => {
                 {/* Sección para crear un nuevo Workspace */}
                 <div className='create-workspace'>
                     <span>¿Aún no tienes espacios de trabajo? </span>
-                    <button className='btn-modal' onClick={() => setShowModal(true)}>Crea un workspace</button>
+                    <button className='btn-modal' onClick={() => setShowModal(true)}> <AddIcon/> Crea un workspace</button>
 
                     <Modal show={showModal} onClose={() => setShowModal(false)}> {/* ⬅️ Cambié `show` por `isOpen` */}
                         <h2 className="text-lg font-bold">Crear un workspace</h2>
