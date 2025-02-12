@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -99,7 +101,8 @@
     align-items: center;
     padding: 20px;
     height: 100vh;
-    background-color: #4A154B;
+    background-color: #611F69;
+    font-family: 'Lato', sans-serif;
 }
 
 h1 {
@@ -365,5 +368,5 @@ h1 {
     transition: background 0.3s ease;
 }
 .hand-icon {
-    background-color: yellow;
+    color: yellow;
 }
