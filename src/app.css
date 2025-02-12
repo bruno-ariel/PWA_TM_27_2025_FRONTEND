@@ -330,7 +330,7 @@ h1 {
 }
 
 .form-register input {
-    width: 400px;
+    width: 350px;
     height: 44px;
     border-radius: 10px;
     border: 1px solid #ccc;
@@ -350,6 +350,7 @@ h1 {
     height: 44px;
     font-size: 14px;
     font-weight: bold;
+    margin-top: 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
