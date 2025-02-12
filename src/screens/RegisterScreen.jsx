@@ -42,7 +42,9 @@ const RegisterScreen = () => {
 	form_state.username && form_state.username.length < 5 && errores.username.push("El mínimo de caracteres es 5")
 	return (
 		<div>
-			<h1> Registresé </h1>
+			<img src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" alt="img-slack" className="icon-slack" />
+			<h1> Registrarse </h1>
+			
 			<form onSubmit={handleSubmitForm}>
 				<div>
 					<label htmlFor="username">Ingresa tu nombre de usuario:</label>
@@ -55,7 +57,7 @@ const RegisterScreen = () => {
 					{errores.email?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
 				</div>
 				<div>
-					<label htmlFor="password">Ingresa tu contraseña:</label>
+					<label htmlFor="password">Ingrese su contraseña:</label>
 					<input name='password' id='password' value={form_state.password} onChange={handleChangeInput} />
 					<button type='submit' disabled={errores.email.length > 0 || errores.password.length || !form_state.email || !form_state.password}>Crear usuario</button>
 					{errores.password?.map((error, index) => <p key={index} style={{ color: "red" }}>{error}</p>)}
