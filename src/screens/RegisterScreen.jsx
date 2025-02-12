@@ -45,7 +45,7 @@ const RegisterScreen = () => {
 			<img src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" alt="img-slack" className="img-slack-register"/>
 			<h1 className="title-register"> Primero introduce tu e-mail, un nombre de usuario y una contraseña </h1>
 			<h3> Te sugerimos que uses la <bolt> direccion de correo electronico que usas en tu trabajo</bolt></h3>
-			<form onSubmit={handleSubmitForm}>
+			<form className="form-register" onSubmit={handleSubmitForm}>
 				<div>
 					<label htmlFor="username">Ingresa tu nombre de usuario:</label>
 					<input name='username' id='username' value={form_state.username} onChange={handleChangeInput} />
