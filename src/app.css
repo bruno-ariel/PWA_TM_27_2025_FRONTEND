@@ -288,27 +288,30 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Espaciado entre el icono y el texto */
-    background-color: #6a0dad; /* Morado vibrante */
-    color: #ffffff;
+    gap: 8px;
+    background-color: #6a0dad; /* Morado más vibrante */
+    color: #ffffff; /* Texto blanco */
     font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
     border: none;
     border-radius: 8px;
-    width: 180px; /* Más ancho para acomodar el texto */
-    height: 50px;
+    width: 100px;
+    height: 45px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-modal:hover {
-    background-color: #7b1fd1; /* Un tono más claro al pasar el mouse */
-    transform: translateY(-2px);
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    background-color: #5a0cb3;
+    transform: scale(1.05);
 }
 
+.btn-modal:active {
+    background-color: #4a0a99;
+    transform: scale(0.98);
+}
 .icon {
     width: 20px;
     height: 20px;
