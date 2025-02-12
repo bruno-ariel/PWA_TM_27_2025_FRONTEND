@@ -24,14 +24,23 @@ const ForgotPasswordScreen = () => {
         }
     }
     return (
-        <div>
-            <h1>Restablecer contraseña</h1>
-            <p>Vamos a enviarte un correo electronico con los pasos a seguir para reestablecer</p>
-            <form onSubmit={handleSubmitForgotPassword}>
-            <label htmlFor="email">Ingresa el mail con el que te registraste:</label>
-            <input placeholder='joedoe@email.com' name='email' id='email' onChange={handleChangeInput}/>
-            <button>Enviar correo</button>
-        </form>
+        <div className="forgot-container">
+            <div className="forgot-card">
+                <h1>Restablecer contraseña</h1>
+                <p>Te enviaremos un correo con los pasos para restablecer tu contraseña.</p>
+                <form onSubmit={handleSubmitForgotPassword}>
+                    <label htmlFor="email">Ingresa tu correo registrado:</label>
+                    <input
+                        type="email"
+                        placeholder="joedoe@email.com"
+                        name="email"
+                        id="email"
+                        onChange={handleChangeInput}
+                        required
+                    />
+                    <button type="submit">Enviar correo</button>
+                </form>
+            </div>
         </div>
     )
 }

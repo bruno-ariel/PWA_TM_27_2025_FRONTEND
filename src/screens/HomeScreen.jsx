@@ -35,7 +35,7 @@ const HomeScreen = () => {
 
             setShowModal(false);
             resetForm();
-            refetch(); // ⬅️ Recargar la lista de workspaces
+            refetch();
         } catch (error) {
             console.error("Error al crear workspace:", error);
         }
@@ -43,14 +43,14 @@ const HomeScreen = () => {
 
     return (
         <main className='home-screen'>
-            <h1><HandIcon className='hand-icon'/> Bienvenido de vuelta { workspace_response?.data?.user?.username }</h1>
+            <h1 className='title'><HandIcon className='hand-icon'/> Bienvenido de vuelta { workspace_response?.data?.user?.username }</h1>
             <div className='workspaces-container'>
                 {/* Sección de Workspaces */}
                 <div className='workspaces'>
                     {workspace_loading ? (
                         <h2>Cargando...</h2>
                     ) : workspace_error ? (
-                        <h2>Error al cargar workspaces</h2> // ⬅️ Manejo de errores
+                        <h2>Error al cargar workspaces</h2>
                     ) : workspace_response?.data?.workspaces?.length ? (
                         workspace_response.data.workspaces.map(workspace => (
                             <div key={workspace._id} className="workspace-item">
@@ -62,13 +62,12 @@ const HomeScreen = () => {
                         <h2>No tienes espacios de trabajo</h2>
                     )}
                 </div>
-
                 {/* Sección para crear un nuevo Workspace */}
                 <div className='create-workspace'>
-                    <span>¿Aún no tienes espacios de trabajo? </span>
+                    <h2>¿Aún no tienes espacios de trabajo? </h2>
                     <button className='btn-modal' onClick={() => setShowModal(true)}> <AddIcon className='icon'/> Crea un workspace</button>
 
-                    <Modal show={showModal} onClose={() => setShowModal(false)}> {/* ⬅️ Cambié `show` por `isOpen` */}
+                    <Modal show={showModal} onClose={() => setShowModal(false)}>
                         <h2 className="text-lg font-bold">Crear un workspace</h2>
                         <form onSubmit={handleCreateWorkspace}>
                             <input
