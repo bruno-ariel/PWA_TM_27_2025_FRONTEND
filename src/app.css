@@ -364,3 +364,6 @@ h1 {
     cursor: pointer;
     transition: background 0.3s ease;
 }
+.hand-icon {
+    background-color: yellow;
+}
