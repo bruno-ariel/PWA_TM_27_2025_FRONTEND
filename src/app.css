@@ -321,3 +321,10 @@ h1 {
     height: 26px;
     width: 102px;
 }
+
+.form-register {
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px
+}
