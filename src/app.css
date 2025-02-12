@@ -320,6 +320,15 @@ h1 {
 .img-slack-register{
     height: 26px;
     width: 102px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.title-register{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: bold;
+    font: 44px;
 }
 
 .form-register {
