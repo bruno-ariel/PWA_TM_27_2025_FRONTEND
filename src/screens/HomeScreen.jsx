@@ -5,7 +5,7 @@ import { useFetch } from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
 import Modal from '../Components/Modal'
 import useForm from '../hooks/useForm'
-import { AddIcon , HandIcon } from '../Icons'
+import { AddIcon , HandIcon, RocketIcon } from '../Icons'
 
 const HomeScreen = () => {
     const {
@@ -43,7 +43,8 @@ const HomeScreen = () => {
 
     return (
         <main className='home-screen'>
-            <h1 className='title-register'><HandIcon className='hand-icon'/> Bienvenido de vuelta { workspace_response?.data?.user?.username }</h1>
+            <h1 className='title-register'><HandIcon className='hand-icon'/>
+            Bienvenido de vuelta { workspace_response?.data?.user?.username }</h1>
             <div className='workspaces-container'>
                 {/* Sección de Workspaces */}
                 <div className='workspaces'>
@@ -55,7 +56,7 @@ const HomeScreen = () => {
                         workspace_response.data.workspaces.map(workspace => (
                             <div key={workspace._id} className="workspace-item">
                                 <h3>{workspace.name}</h3>
-                                <Link to={`/workspace/${workspace._id}`}>Ir a workspace</Link>
+                                <Link to={`/workspace/${workspace._id}`}>Ir al espacio de trabajo <RocketIcon/> </Link>
                             </div>
                         ))
                     ) : (
