@@ -43,7 +43,7 @@ const HomeScreen = () => {
 
     return (
         <main className='home-screen'>
-            <h1 className='title'><HandIcon className='hand-icon'/> Bienvenido de vuelta { workspace_response?.data?.user?.username }</h1>
+            <h1 className='title-register'><HandIcon className='hand-icon'/> Bienvenido de vuelta { workspace_response?.data?.user?.username }</h1>
             <div className='workspaces-container'>
                 {/* Sección de Workspaces */}
                 <div className='workspaces'>
@@ -75,11 +75,8 @@ const HomeScreen = () => {
                                 value={form_state.name}
                                 onChange={handleChangeInput}
                                 placeholder="Nombre del canal"
-                                className="border p-2 w-full mt-2"
                             />
-                            <button type="submit" className="mt-4 bg-green-500 text-white px-4 py-2 rounded">
-                                Crear
-                            </button>
+                            <button type="submit"></button>
                         </form>
                     </Modal>
                 </div>
