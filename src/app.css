@@ -310,6 +310,10 @@ h2 {
     transition: background 0.3s ease, transform 0.2s ease;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+.position-btn {
+    position: relative;
+    top: 20px;
+}
 
 .btn-modal:hover {
     background-color: #5a0cb3;

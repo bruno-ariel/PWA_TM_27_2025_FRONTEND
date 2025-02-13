@@ -69,11 +69,13 @@ const HomeScreen = () => {
                 <div className='create-workspace'>
                     <h2>¿Aún no tienes espacios de trabajo? </h2>
                     <img src='https://a.slack-edge.com/bv1-13/get-started-workspaces-icon-88e0cb1.svg' alt='img-workspace' className='img-workspace'></img>
-                    <button 
-                        className='btn-modal' 
-                        onClick={() => setShowModal(true)}>
-                            <AddIcon className='icon'/> Crea un workspace
-                    </button>
+                    <div className='position-btn'>
+                        <button 
+                            className='btn-modal' 
+                            onClick={() => setShowModal(true)}>
+                                <AddIcon className='icon'/> Crea un workspace
+                        </button>
+                    </div>
                     <Modal show={showModal} onClose={() => setShowModal(false)}>
                         <form onSubmit={handleCreateWorkspace}>
                             <input
