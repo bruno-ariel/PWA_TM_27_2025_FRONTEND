@@ -384,3 +384,11 @@ h2 {
 .hand-icon {
     color: yellow;
 }
+.container-reset-password{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    background-color: #8a4141;
+}
