@@ -83,7 +83,7 @@ const HomeScreen = () => {
                                 onChange={handleChangeInput}
                                 placeholder="Nombre del canal"
                             />
-                            <button type="submit"></button>
+                            <button type="submit"> Crear </button>
                         </form>
                     </Modal>
                 </div>
