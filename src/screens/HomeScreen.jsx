@@ -66,9 +66,8 @@ const HomeScreen = () => {
                 <div className='create-workspace'>
                     <h2>¿Aún no tienes espacios de trabajo? </h2>
                     <button className='btn-modal' onClick={() => setShowModal(true)}> <AddIcon className='icon'/> Crea un workspace</button>
-
                     <Modal show={showModal} onClose={() => setShowModal(false)}>
-                        <h2 className="text-lg font-bold">Crear un workspace</h2>
+                        <h2>Crear un workspace</h2>
                         <form onSubmit={handleCreateWorkspace}>
                             <input
                                 type="text"
