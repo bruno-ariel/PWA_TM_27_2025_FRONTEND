@@ -30,7 +30,7 @@
     font-size: 28px;
     font-weight: bold;
     text-align: center;
-    color: #ffffff;
+    color: #000000;
 }
 
 .auth-form .input-container {
@@ -296,14 +296,14 @@ h2 {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background-color: #6a0dad; /* Morado más vibrante */
-    color: #ffffff; /* Texto blanco */
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
+    background-color: #611F69;
+    color: #ffffff;
+    font-family: helvetica;
+    font-size: 14px;
     font-weight: bold;
     border: none;
-    border-radius: 8px;
-    width: 100px;
+    border-radius: 6px;
+    width: 120px;
     height: 45px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
@@ -320,9 +320,9 @@ h2 {
     transform: scale(0.98);
 }
 .icon {
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
 }
 
 .container-register {

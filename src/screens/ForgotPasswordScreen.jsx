@@ -30,7 +30,7 @@ const ForgotPasswordScreen = () => {
             <h3>Te enviaremos un correo con los pasos para restablecer tu contraseña.</h3>
             <form className="form-register" onSubmit={handleSubmitForgotPassword}>
                 <div>
-                    <label htmlFor="email">Ingresa tu correo registrado:</label>
+                    <label htmlFor="email">Ingrese el correo con el que se ha registrado</label>
                     <input
                         type="email"
                         placeholder="joedoe@email.com"
