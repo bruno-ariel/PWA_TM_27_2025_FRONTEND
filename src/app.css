@@ -393,3 +393,9 @@ h2 {
     height: 100vh;
     background-color: #8a4141;
 }
+.img-workspace{
+    height: 26px;
+    width: 102px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
