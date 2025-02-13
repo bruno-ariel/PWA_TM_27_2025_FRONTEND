@@ -25,13 +25,15 @@ const ResetPasswordScreen = () => {
         }
     }
     return (
-        <div className='container-reset-password'>
-            <img src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" alt="img-slack" className="img-slack-reset"/>
-            <h1 className='title-reset-password'> Elije una nueva contraseña </h1>
+        <div className='container-register'>
+            <img src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" alt="img-slack" className="img-slack-register"/>
+            <h1 className='title-register'> Elije una nueva contraseña </h1>
             <form className='form-reset-password' onSubmit={handleSubmitResetPassword}>
-                <label htmlFor='password'> Nueva contraseña: </label>
-                <input type="password" name='password' id='password' placeholder='***********' onChange={handleChangeInput} />
-                <button> Enviar </button>
+                <div>
+                    <label htmlFor='password'> Nueva contraseña: </label>
+                    <input type="password" name='password' id='password' placeholder='***********' onChange={handleChangeInput} />
+                    <button> Enviar </button>
+                </div>
             </form>
         </div>
     )
