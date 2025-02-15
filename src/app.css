@@ -103,10 +103,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) {
     .home-screen {
         height: 100%;
-        padding: 10px;
     }
 }
 
@@ -290,6 +289,7 @@ h2 {
 
 .modal-close {
     position: absolute;
+    top: -10px;
     right: 10px;
     background: none;
     border: none;
