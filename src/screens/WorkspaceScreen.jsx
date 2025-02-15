@@ -50,7 +50,7 @@ const WorkspaceScreen = () => {
                     />
                 )}
                 {/* Botón para abrir el modal */}
-                <button className="btn-modal" onClick={() => setShowModal(true)}><AddIcon/>
+                <button className="btn-modal" onClick={() => setShowModal(true)}><AddIcon className='icon'/>
                     agregar canales
                 </button>
             </aside>
@@ -78,7 +78,7 @@ const WorkspaceScreen = () => {
                         placeholder="Nombre del canal"
                         className="border p-2 w-full mt-2"
                     />
-                    <button type="submit" className="mt-4 bg-green-500 text-white px-4 py-2 rounded">
+                    <button type="submit" className="btn-modal">
                         Crear
                     </button>
                 </form>
