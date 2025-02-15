@@ -103,6 +103,13 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+@media screen and (max-width: 350px) {
+    .home-screen {
+        height: 100%;
+        padding: 10px;
+    }
+}
+
 h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -134,29 +141,28 @@ h2 {
 .create-workspace {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Imagen a la izquierda, botón a la derecha */
+    justify-content: space-between; 
     width: 100%;
     padding: 20px;
     background: white;
     border-radius: 10px;
     border: #000000 solid 1px;
     box-shadow: #1A1D21 0px 4px 6px;
-    gap: 10px; /* Espaciado entre elementos */
+    gap: 10px; 
 }
 
 .img-workspace {
-    width: 50px; /* Ajusta el tamaño de la imagen */
+    width: 50px; 
     height: auto;
 }
 
 .btn-modal {
-    flex-shrink: 0; /* Evita que el botón se reduzca demasiado en pantallas pequeñas */
+    flex-shrink: 0;
 }
 
-/* Responsividad */
 @media (max-width: 500px) {
     .create-workspace {
-        flex-direction: column; /* En pantallas pequeñas, los elementos se apilan */
+        flex-direction: column; 
         align-items: center;
         text-align: center;
     }
