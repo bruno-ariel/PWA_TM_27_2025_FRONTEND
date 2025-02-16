@@ -52,7 +52,6 @@ const LoginScreen = () => {
         
     return(
         <main className='auth-screen'>
-            <img src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" alt="img-slack" className="img-slack-register"/>
             <form onSubmit={handleSubmitForm} className='auth-form'>
                 <h1 className='title'> Login </h1>
                 <div className='input-container'>
