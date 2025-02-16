@@ -159,7 +159,7 @@ h2 {
     flex-shrink: 0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 320px) {
     .create-workspace {
         flex-direction: column; 
         align-items: center;
@@ -263,6 +263,74 @@ h2 {
     cursor: pointer;
 }
 
+@media (max-width: 320px) {
+    .workspace-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .channels-list {
+        align-items: center;
+    }
+
+    .channel-link {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 8px;
+    }
+
+    .chat-container {
+        padding: 10px;
+    }
+
+    .chat-box {
+        height: auto;
+    }
+
+    .message-form {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .message-form input {
+        width: 100%;
+    }
+
+    .message-form button {
+        width: 100%;
+    }
+
+    .messages-container {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .btn-modal {
+        width: 100%;
+        text-align: center;
+    }
+
+    .modal {
+        width: 90%;
+    }
+
+    .modal input {
+        width: 100%;
+    }
+
+    .modal button {
+        width: 100%;
+    }
+}
+
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -277,7 +345,6 @@ h2 {
 }
 
 .modal-content {
-    margin-top: 5px;
     background: white;
     padding: 20px;
     border-radius: 10px;
