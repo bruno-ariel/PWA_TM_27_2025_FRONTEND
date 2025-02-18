@@ -103,8 +103,11 @@ const ChannelsList = ({ channel_list, workspace_id }) => {
     );
 };
 
-const Channel = ({ workspace_id, channel_id }) => {
-    const { data: channel_data, loading: channel_loading } = useFetch(
+const Channel = () => {
+
+    const { workspace_id, channel_id } = useParams();
+
+    const { data: channel_data, loading: channel_loading , refetch } = useFetch(
         ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`,
         {
             method: "GET",
@@ -124,6 +127,7 @@ const Channel = ({ workspace_id, channel_id }) => {
                 body: JSON.stringify(form_state),
             }
         );
+        refetch();
     };
 
     return (
