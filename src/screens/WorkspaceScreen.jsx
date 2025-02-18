@@ -134,7 +134,15 @@ const Channel = () => {
     const handleSendMessage = async (e) => {
         e.preventDefault();
         if (!content.trim()) return;
-
+    
+        const newMessage = {
+            _id: Date.now(),
+            sender: { username: "Tú" },
+            content: content,
+        };
+        
+        setMessages((prevMessages) => [...prevMessages, newMessage]);
+    
         await fetch(
             ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}/send-message`,
             {
@@ -143,8 +151,8 @@ const Channel = () => {
                 body: JSON.stringify({ content }),
             }
         );
-
-        setContent(""); 
+    
+        setContent("");
     };
 
     return (
