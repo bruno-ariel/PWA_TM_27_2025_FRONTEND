@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import ENVIROMENT from '../utils/constants/enviroments'
@@ -104,38 +104,39 @@ const ChannelsList = ({ channel_list, workspace_id }) => {
 };
 
 const Channel = () => {
-    const { workspace_id, channel_id } = useParams(); 
+    const { workspace_id, channel_id } = useParams();
+    const [messages, setMessages] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const { data: channel_data, loading: channel_loading, refetch } = useFetch(
-        ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`,
-        {
-            method: "GET",
-            headers: getAuthentitedHeaders(),
+    const fetchMessages = async () => {
+        setLoading(true);
+        try {
+            const response = await fetch(
+                ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}`,
+                {
+                    method: "GET",
+                    headers: getAuthentitedHeaders(),
+                }
+            );
+            const data = await response.json();
+            setMessages(data?.data?.messages || []);
+        } catch (error) {
+            console.error("Error fetching messages:", error);
         }
-    );
-
-    const { form_state, handleChangeInput } = useForm({ content: "" });
-
-    const handleSubmitNewMessage = async (e) => {
-        e.preventDefault();
-        await fetch(
-            ENVIROMENT.API_URL + `/api/channel/${workspace_id}/${channel_id}/send-message`,
-            {
-                method: "POST",
-                headers: getAuthentitedHeaders(),
-                body: JSON.stringify(form_state),
-            }
-        );
-        refetch();
+        setLoading(false);
     };
-    
+
+    useEffect(() => {
+        fetchMessages();
+    }, [channel_id]);
+
     return (
         <div className="chat-box">
             <div className="messages-container">
-                {channel_loading ? (
+                {loading ? (
                     <h2>Cargando...</h2>
                 ) : (
-                    channel_data?.data?.messages.map((message) => (
+                    messages.map((message) => (
                         <div key={message._id} className="message">
                             <h4>{message.sender.username}</h4>
                             <p>{message.content}</p>
@@ -143,18 +144,9 @@ const Channel = () => {
                     ))
                 )}
             </div>
-            <form className="message-form" onSubmit={handleSubmitNewMessage}>
-                <input
-                    type="text"
-                    placeholder="Escribe un mensaje..."
-                    name="content"
-                    onChange={handleChangeInput}
-                    value={form_state.content}
-                />
-                <button type="submit">Enviar</button>
-            </form>
         </div>
     );
 };
+
 
 export default WorkspaceScreen;
