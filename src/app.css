@@ -281,8 +281,33 @@ h1, h2 {
     border: none;
     cursor: pointer;
 }
-
-
+@media screen and (max-width: 750px) {
+    .sidebar {
+        width: 200px;
+        padding: 10px;
+    }
+    .chat-container {
+        padding: 15px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .sidebar {
+        width: 150px;
+        padding: 5px;
+    }
+    .chat-container {
+        padding: 10px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .sidebar {
+        width: 100px;
+        padding: 5px;
+    }
+    .chat-container {
+        padding: 5px;
+    }
+}
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -338,7 +363,6 @@ h1, h2 {
     outline: none;
 }
 
-/* Botón de crear */
 .modal-content button {
     margin-top: 15px;
     background-color: #4A154B;
