@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react"
 export const AuthContext = createContext()
 
 
-//Crear el proveedor de contexto (Es un componente)
+//Crear el proveedor de contexto (Es un componente)dd
 
 export const AuthContextProvider = ({children}) =>{
 
