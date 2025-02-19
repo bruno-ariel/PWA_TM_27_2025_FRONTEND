@@ -21,10 +21,13 @@ const LoginScreen = () => {
                 body: JSON.stringify(form_state)
         })
             const data = await response.json()
-            console.log("token guardado en storage", data.data.access_token)
+            console.log(data)
             sessionStorage.setItem('access_token', data.data.access_token)
-            console.log("redirigiendo a /home")
-            navigate('/home')
+            
+            setTimeout(() => {
+                console.log("Redirigiendo a /home después de 2 segundos");
+                navigate('/home');
+            }, 2000);
         }
         catch(error){
             console.error(' error al loguear ', error)
