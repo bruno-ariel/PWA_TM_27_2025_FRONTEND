@@ -170,7 +170,6 @@ const Channel = () => {
                 )}
             </div>
 
-            {/* Chatbox siempre presente */}
             <form className="message-form" onSubmit={handleSendMessage}>
                 <input
                     type="text"

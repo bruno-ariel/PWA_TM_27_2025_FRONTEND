@@ -7,4 +7,4 @@ react , react-dom , react-icons , react-router-dom
 
 ## Dificultades y aprendizajes (opcional) ---- FEEDBACK
 
-Las dificultades que he tenido durante la cursada mas problematicas ha sido el manejo de estados, customHooks , useParams y en el css la responsibidad
+Las dificultades que he tenido durante la cursada mas problematicas ha sido el manejo de estados, customHooks , useParams , por la parte del css la responsibidad me ha dado un poco de trabajo
