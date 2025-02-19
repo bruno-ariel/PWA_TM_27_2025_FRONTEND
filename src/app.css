@@ -431,18 +431,21 @@ h1, h2 {
     margin-top: 20px;
     margin-bottom: 20px;
     font-weight: bold;
-    font: 44px;
+    font-size: 24px;
+    text-align: center;
 }
 
 .form-register {
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-top: 20px;
     width: 100%;
     max-width: 400px
 }
 
 .form-register input {
-    width: 400px;
+    width: 100%;
     height: 44px;
     border-radius: 10px;
     border: 1px solid #ccc;
@@ -468,6 +471,48 @@ h1, h2 {
     cursor: pointer;
     transition: background 0.3s ease;
 }
+
+@media screen and (max-width: 750px) {
+    .title-register {
+        font-size: 22px;
+    }
+    .form-register {
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .title-register {
+        font-size: 20px;
+    }
+    .form-register {
+        max-width: 300px;
+    }
+    .form-register input {
+        height: 40px;
+    }
+    .form-register button {
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .title-register {
+        font-size: 18px;
+    }
+    .form-register {
+        max-width: 250px;
+    }
+    .form-register input {
+        height: 36px;
+        font-size: 12px;
+    }
+    .form-register button {
+        height: 36px;
+        font-size: 12px;
+    }
+}
+
 .hand-icon {
     color: yellow;
 }
