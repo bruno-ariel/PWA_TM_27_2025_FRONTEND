@@ -9,12 +9,12 @@ export const AuthContextProvider = ({children}) => {
         sessionStorage.setItem('access_token', access_token)
         setIsAuthenticatedState(true)
     }
-    useEffect ( () => {
+    /* useEffect ( () => {
         const auth_token = sessionStorage.getItem("access_token")
         if (auth_token) {
             setIsAuthenticatedState(true)
         }
-    }, [] )
+    }, [] ) */
     
     return (
         <AuthContext.Provider value={{isAuthenticatedState}}>
