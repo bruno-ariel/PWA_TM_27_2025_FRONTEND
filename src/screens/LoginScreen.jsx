@@ -19,24 +19,13 @@ const LoginScreen = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(form_state)
-            });
-    
+            });    
             const data = await response.json();
-            console.log("Respuesta del servidor:", data);
-            if (!response.ok) {
-                alert(data.message || "Error al iniciar sesión");
-                return;
-            }
-    
             if (!data.data || !data.data.access_token) {
-                alert("No se recibió el token")
-            }
-    
+                alert("No se pudo autenticar el usuario");
+            }    
             sessionStorage.setItem('access_token', data.data.access_token);
-    
-            console.log(" Redirigiendo a home...");
             navigate('/home');
-    
         } catch (error) {
             console.error("Error en la solicitud:", error);
             alert("Error al conectar con el servidor");

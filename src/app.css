@@ -29,10 +29,10 @@
 }
 
 .title {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
-    color: #000000;
+    color: #551a5c;
 }
 
 .auth-form .input-container {
