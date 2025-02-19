@@ -1,41 +1,44 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import useForm from '../hooks/useForm'
-import ENVIROMENT from '../utils/constants/enviroments'
-import { Link , useNavigate } from 'react-router-dom'
+import ENVIROMENT from '../utils/constants/enviroment'
+import { Link, useNavigate} from 'react-router-dom'
+import { AuthContext } from '../Context/AuthContext'
 const LoginScreen = () => {
-    const navigate = useNavigate();
-    const { form_state, handleChangeInput } = useForm ({ email: "", password: "" });
-    const url = new URLSearchParams(window.location.search);
-    
+
+    const {login, isAuthenticatedState} = useContext(AuthContext)
+    console.log('Authenticated:', isAuthenticatedState)
+    const navigate = useNavigate()
+    const {form_state, handleChangeInput} = useForm({email:'', password: ''})
+    const url = new URLSearchParams(window.location.search)
     if(url.get('verified')){
-        alert('tu cuenta ha sido verificada')
+        alert('Cuenta verificada')
     }
-    const handleSubmitForm = async (e) => {
+    const handleSubmitForm = async (event) =>{
+        
         try{
-            e.preventDefault()
-            const response = await fetch( ENVIROMENT.API_URL + '/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-            },
+            event.preventDefault()
+            const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
+                method: "POST",
+                headers:{
+                    'Content-Type': "application/json"
+                },
                 body: JSON.stringify(form_state)
-        })
+            })
             const data = await response.json()
-            console.log(data)
-            sessionStorage.setItem('access_token', data.data.access_token)
-            
-            setTimeout(() => {
-                console.log("Redirigiendo a /home después de 2 segundos");
-                navigate('/home');
-            }, 2000);
+
+            login(data.data.access_token)
+            navigate('/home')
         }
         catch(error){
-            console.error(' error al loguear ', error)
+            console.error("Error al loguear", error)
         }
+        
     }
     const errores = {
-        email: [],
-        password: []
+        email: [
+        ],
+        password: [
+        ]
     }
     form_state.email && form_state.email.length > 30 && errores.email.push('El email no puede superar los 30 caracteres')
     form_state.email && form_state.email.length < 5 && errores.email.push('El email debe tener al menos 5 caracteres')
