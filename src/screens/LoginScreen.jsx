@@ -1,23 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
 const LoginScreen = () => {
     const navigate = useNavigate();
-    const { form_state, handleChangeInput } = useForm({ email: "", password: "" });
-    const url = new URLSearchParams(window.location.search);
+    const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
+    const url = new URLSearchParams(window.location.search) 
 
-    useEffect(() => {
-        if (url.get('verified')) {
-            alert('Tu cuenta ha sido verificada');
-        }
-
-        const token = sessionStorage.getItem('access_token');
-        if (token) {
-            navigate('/home');
-        }
-    }, []); 
-
+    if(url.get('verified')){
+        alert('tu cuenta ha sido verificada')
+    }
     const handleSubmitForm = async (e) => {
         e.preventDefault();
         try {
@@ -27,26 +19,22 @@ const LoginScreen = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(form_state)
-            });
-
+            });    
             const data = await response.json();
             console.log("Respuesta del servidor:", data);
-
             if (!response.ok) {
                 alert(data.message || "Error al iniciar sesión");
                 return;
             }
-
+    
             if (!data.data || !data.data.access_token) {
-                alert("No se recibió el token");
-                return;
+                alert("No se recibió el token")
             }
-
-            // Guardamos el token en sessionStorage
+    
             sessionStorage.setItem('access_token', data.data.access_token);
-
-            console.log("Redirigiendo a home...");
-            navigate('/home');
+    
+            console.log(" Redirigiendo a home...");
+            navigate("/home");
     
         } catch (error) {
             console.error("Error en la solicitud:", error);
