@@ -44,8 +44,7 @@ const HomeScreen = () => {
     return (
         <main className='home-screen'>
             <img src="https://a.slack-edge.com/bv1-13/slack_logo-ebd02d1.svg" alt="img-slack" className="img-slack-register"/>
-            <h1 className='title-register'><HandIcon className='hand-icon'/>
-            Bienvenido de vuelta { workspace_response?.data?.user?.username }</h1>
+            <h1 className='title-register'><HandIcon className='hand-icon'/>Bienvenido de vuelta</h1>
             <h3>Elige uno de los siguientes espacios de trabajo para volver a trabajar con tu equipo.</h3>
             <div className='workspaces-container'>
                 {/* Sección de Workspaces */}
