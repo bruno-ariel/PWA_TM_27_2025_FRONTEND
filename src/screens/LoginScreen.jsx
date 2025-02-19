@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext }from 'react'
 import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
+import { AuthContext } from '../Context/AuthContext'
+import { use } from 'react'
 const LoginScreen = () => {
+
+    const {login, isAuthenticatedState} = useContext(AuthContext)
+    console.log(" estamos logueados ",isAuthenticatedState)
     const navigate = useNavigate()
     const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
     const url = new URLSearchParams(window.location.search) 
@@ -20,9 +25,9 @@ const LoginScreen = () => {
                 body: JSON.stringify(form_state)
         })
             const data = await response.json()
-            console.log(data)
-            sessionStorage.setItem('access_token', data.data.access_token)
-            navigate("/home")
+            
+            login(data.data.access_token)
+            navigate('/home')
         }
         catch(error){
             console.error(' error al loguear ', error)
