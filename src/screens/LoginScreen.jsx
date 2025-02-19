@@ -1,39 +1,32 @@
-import React, { useContext }from 'react'
+import React from 'react'
 import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
-import { AuthContext } from '../Context/AuthContext'
-import { use } from 'react'
 const LoginScreen = () => {
-
-    const {login, isAuthenticatedState} = useContext(AuthContext)
-    console.log('Authenticated:', isAuthenticatedState)
     const navigate = useNavigate()
-    const {form_state, handleChangeInput} = useForm({email:'', password: ''})
-    const url = new URLSearchParams(window.location.search)
+    const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
+    const url = new URLSearchParams(window.location.search) 
     if(url.get('verified')){
-        alert('Cuenta verificada')
+        alert('tu cuenta ha sido verificada')
     }
-    const handleSubmitForm = async (event) =>{
-       
+    const handleSubmitForm = async (e) => {
         try{
-            event.preventDefault()
-            const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
-                method: "POST",
-                headers:{
-                    'Content-Type': "application/json"
-                },
+            e.preventDefault()
+            const response = await fetch( ENVIROMENT.API_URL + '/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+            },
                 body: JSON.stringify(form_state)
-            })
+        })
             const data = await response.json()
-
-            login(data.data.access_token)
-            navigate('/home')
+            console.log(data)
+            sessionStorage.setItem('access_token', data.data.access_token)
+            navigate("/home")
         }
         catch(error){
-            console.error("Error al loguear", error)
+            console.error(' error al loguear ', error)
         }
-        
     }
     const errores = {
         email: [],
