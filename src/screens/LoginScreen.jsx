@@ -21,8 +21,9 @@ const LoginScreen = () => {
                 body: JSON.stringify(form_state)
         })
             const data = await response.json()
-            console.log(data)
+            console.log("token guardado en storage", data.data.access_token)
             sessionStorage.setItem('access_token', data.data.access_token)
+            console.log("redirigiendo a /home")
             navigate('/home')
         }
         catch(error){
