@@ -21,11 +21,21 @@ const LoginScreen = () => {
                 body: JSON.stringify(form_state)
             });    
             const data = await response.json();
+            console.log("Respuesta del servidor:", data);
+            if (!response.ok) {
+                alert(data.message || "Error al iniciar sesión");
+                return;
+            }
+    
             if (!data.data || !data.data.access_token) {
-                alert("No se pudo autenticar el usuario");
-            }    
+                alert("No se recibió el token")
+            }
+    
             sessionStorage.setItem('access_token', data.data.access_token);
+            await new Promise(resolve => setTimeout(resolve, 1000));    
+            console.log(" Redirigiendo a home...");
             navigate('/home');
+    
         } catch (error) {
             console.error("Error en la solicitud:", error);
             alert("Error al conectar con el servidor");
@@ -70,8 +80,8 @@ const LoginScreen = () => {
                     }
                 </div>
                 <button type='submit' disabled={
-                        errores.email.length ||
-                        errores.password.length ||
+                        !!errores.email.length ||
+                        !!errores.password.length ||
                         !form_state.email ||
                         !form_state.password
                         }> Iniciar sesion
