@@ -282,32 +282,46 @@ h1, h2 {
     cursor: pointer;
 }
 @media screen and (max-width: 750px) {
+    .workspace-container {
+        flex-direction: column;
+    }
     .sidebar {
-        width: 200px;
-        padding: 10px;
+        width: 100%;
+        text-align: center;
     }
     .chat-container {
-        padding: 15px;
+        padding: 10px;
     }
 }
+
 @media screen and (max-width: 500px) {
     .sidebar {
-        width: 150px;
-        padding: 5px;
-    }
-    .chat-container {
         padding: 10px;
     }
-}
-@media screen and (max-width: 320px) {
-    .sidebar {
-        width: 100px;
-        padding: 5px;
-    }
     .chat-container {
         padding: 5px;
     }
+    .message-form {
+        flex-direction: column;
+    }
+    .message-form input, .message-form button {
+        width: 100%;
+    }
 }
+
+@media screen and (max-width: 320px) {
+    .sidebar {
+        font-size: 14px;
+        padding: 5px;
+    }
+    .chat-container {
+        font-size: 14px;
+    }
+    .message-form input, .message-form button {
+        font-size: 14px;
+    }
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
