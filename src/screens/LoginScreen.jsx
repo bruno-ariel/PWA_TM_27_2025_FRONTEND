@@ -3,44 +3,31 @@ import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
 const LoginScreen = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
     const url = new URLSearchParams(window.location.search) 
-
     if(url.get('verified')){
         alert('tu cuenta ha sido verificada')
     }
     const handleSubmitForm = async (e) => {
-        e.preventDefault();
-        try {
+        try{
+            e.preventDefault()
             const response = await fetch(`${ENVIROMENT.API_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                },
+            },
                 body: JSON.stringify(form_state)
-            });    
-            const data = await response.json();
-            console.log("Respuesta del servidor:", data);
-            if (!response.ok) {
-                alert(data.message || "Error al iniciar sesión");
-                return;
-            }
-    
-            if (!data.data || !data.data.access_token) {
-                alert("No se recibió el token")
-            }
-    
-            sessionStorage.setItem('access_token', data.data.access_token);
-    
-            console.log(" Redirigiendo a home...");
-            navigate("/home");
-    
-        } catch (error) {
-            console.error("Error en la solicitud:", error);
-            alert("Error al conectar con el servidor");
+        })
+            const data = await response.json()
+            console.log(data)
+            sessionStorage.setItem('access_token', data.data.access_token)
+            navigate("/home")
         }
-    };
+        catch(error){
+            console.error(' error al loguear ', error)
+        }
+    }
     const errores = {
         email: [],
         password: []
@@ -48,7 +35,6 @@ const LoginScreen = () => {
     form_state.email && form_state.email.length > 30 && errores.email.push('El email no puede superar los 30 caracteres')
     form_state.email && form_state.email.length < 5 && errores.email.push('El email debe tener al menos 5 caracteres')
     form_state.password && form_state.password.length < 5 && errores.password.push("La contraseña debe tener al menos 5 caracteres")
-        
     return(
         <main className='auth-screen'>
             <form onSubmit={handleSubmitForm} className='auth-form'>
