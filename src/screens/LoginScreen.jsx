@@ -7,31 +7,33 @@ import { use } from 'react'
 const LoginScreen = () => {
 
     const {login, isAuthenticatedState} = useContext(AuthContext)
-    console.log(" estamos logueados ",isAuthenticatedState)
+    console.log('Authenticated:', isAuthenticatedState)
     const navigate = useNavigate()
-    const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
-    const url = new URLSearchParams(window.location.search) 
+    const {form_state, handleChangeInput} = useForm({email:'', password: ''})
+    const url = new URLSearchParams(window.location.search)
     if(url.get('verified')){
-        alert('tu cuenta ha sido verificada')
+        alert('Cuenta verificada')
     }
-    const handleSubmitForm = async (e) => {
+    const handleSubmitForm = async (event) =>{
+       
         try{
-            e.preventDefault()
-            const response = await fetch( ENVIROMENT.API_URL + '/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-            },
+            event.preventDefault()
+            const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
+                method: "POST",
+                headers:{
+                    'Content-Type': "application/json"
+                },
                 body: JSON.stringify(form_state)
-        })
+            })
             const data = await response.json()
-            
+
             login(data.data.access_token)
             navigate('/home')
         }
         catch(error){
-            console.error(' error al loguear ', error)
+            console.error("Error al loguear", error)
         }
+        
     }
     const errores = {
         email: [],
