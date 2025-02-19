@@ -16,7 +16,7 @@ const LoginScreen = () => {
         if (token) {
             navigate('/home');
         }
-    }, [navigate]); 
+    }, []); 
 
     const handleSubmitForm = async (e) => {
         e.preventDefault();
