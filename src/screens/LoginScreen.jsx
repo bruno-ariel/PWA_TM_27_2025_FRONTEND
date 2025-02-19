@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
@@ -11,7 +11,7 @@ const LoginScreen = () => {
         if (url.get('verified')) {
             alert('Tu cuenta ha sido verificada');
         }
-        
+
         const token = sessionStorage.getItem('access_token');
         if (token) {
             navigate('/home');
