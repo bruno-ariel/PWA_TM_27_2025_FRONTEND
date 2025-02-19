@@ -113,7 +113,8 @@ h1, h2 {
 
 .workspaces-container {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    margin-top: 10px;
     align-items: center;
     width: 100%;
     max-width: 600px; 
