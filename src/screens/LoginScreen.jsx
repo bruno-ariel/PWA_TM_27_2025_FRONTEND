@@ -1,6 +1,6 @@
 import React from 'react'
 import useForm from '../hooks/useForm'
-import ENVIROMENT from '../utils/constants/enviroments'
+import ENVIROMENT from '../utils/constants/enviroment'
 import { Link , useNavigate } from 'react-router-dom'
 const LoginScreen = () => {
     const navigate = useNavigate()
@@ -12,7 +12,7 @@ const LoginScreen = () => {
     const handleSubmitForm = async (e) => {
         try{
             e.preventDefault()
-            const response = await fetch( ENVIROMENT.API_URL + '/api/auth/login', {
+            const response = await fetch(`${ENVIROMENT.API_URL}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
