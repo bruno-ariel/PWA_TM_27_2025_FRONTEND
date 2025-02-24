@@ -1,9 +1,9 @@
 import React from 'react'
 import useForm from '../hooks/useForm'
-import ENVIROMENT from '../utils/constants/enviroment'
+import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
 const LoginScreen = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
     const url = new URLSearchParams(window.location.search) 
     if(url.get('verified')){
@@ -25,7 +25,7 @@ const LoginScreen = () => {
             navigate("/home")
         }
         catch(error){
-            console.error(' error al loguear ', error)
+            console.error('error al loguear', error)
         }
     }
     const errores = {
@@ -38,7 +38,7 @@ const LoginScreen = () => {
     return(
         <main className='auth-screen'>
             <form onSubmit={handleSubmitForm} className='auth-form'>
-                <h1 className='title'> Login </h1>
+                <h1 className='title'>Login</h1>
                 <div className='input-container'>
                     <label htmlFor="email"> Ingresa tu email</label>
                     <input
@@ -70,9 +70,10 @@ const LoginScreen = () => {
                         errores.password.length ||
                         !form_state.email ||
                         !form_state.password
-                        }> Iniciar sesion
+                        }>
+                        Iniciar sesion
                 </button>
-                <span > Aún no tienes cuenta ? <Link to={'/register'}> Regístrate </Link></span>
+                <span>Aún no tienes cuenta ? <Link to={'/register'}>Regístrate</Link></span>
                 <Link to={'/forgot-password'}> Olvide mi contraseña </Link>
             </form>
         </main>
