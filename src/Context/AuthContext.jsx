@@ -10,7 +10,6 @@ export const AuthContextProvider = ({children}) => {
         sessionStorage.setItem('access_token', acces_token)
     setIsAuthenticatedState(true)
     }
-
     return (
         <AuthContext.Provider value={{isAuthenticatedState, login}}>
             {children}
