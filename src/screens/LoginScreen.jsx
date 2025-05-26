@@ -1,8 +1,7 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
-import { AuthContext } from '../Context/AuthContext'
 
 const LoginScreen = () => {
 
@@ -15,25 +14,35 @@ const LoginScreen = () => {
     if(url.get('verified')){
         alert('Cuenta verificada')
     }
-    const handleSubmitForm = async (e) =>{
-        try{
-            e.preventDefault()
-            const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
-                method: 'POST',
-                headers:{
-                    'Content-Type': 'application/json'
+    const handleSubmitForm = async (e) => {
+    e.preventDefault()
+    try {
+        const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
             },
-                body: JSON.stringify(form_state)
+            body: JSON.stringify(form_state)
         })
-            const data = await response.json()
 
+        const data = await response.json()
+        console.log("Respuesta del backend:", data)
+
+        // Validamos la estructura
+        if (response.ok && data?.data?.access_token) {
             login(data.data.access_token)
             navigate('/home')
+        } else {
+            console.error("Login fallido:", data)
+            alert(data?.error || "Credenciales incorrectas o error del servidor.")
         }
-        catch(error){
-            console.error("error al loguear",error)
-        }
+
+    } catch (error) {
+        console.error("error al loguear", error)
+        alert("Ocurrió un error inesperado.")
     }
+}
+
     const errores = {
         email: [
         ],
@@ -43,7 +52,7 @@ const LoginScreen = () => {
     form_state.email && form_state.email.length > 30 && errores.email.push('El email no puede superar los 30 caracteres')
     form_state.email && form_state.email.length < 5 && errores.email.push('El email debe tener al menos 5 caracteres')
     form_state.password && form_state.password.length < 5 && errores.password.push("La contraseña debe tener al menos 5 caracteres")
-
+        
     return(
         <main className='auth-screen'>
             <form onSubmit={handleSubmitForm} className='auth-form'>
