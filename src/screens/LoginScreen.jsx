@@ -4,12 +4,6 @@ import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
 
-import React, { useContext, useState } from 'react'
-import useForm from '../hooks/useForm'
-import ENVIROMENT from '../utils/constants/enviroments'
-import { Link , useNavigate } from 'react-router-dom'
-import { AuthContext } from '../Context/AuthContext'
-
 const LoginScreen = () => {
 
     const {login , isAuthenticatedState } = useContext(AuthContext)
@@ -49,7 +43,7 @@ const LoginScreen = () => {
     form_state.email && form_state.email.length > 30 && errores.email.push('El email no puede superar los 30 caracteres')
     form_state.email && form_state.email.length < 5 && errores.email.push('El email debe tener al menos 5 caracteres')
     form_state.password && form_state.password.length < 5 && errores.password.push("La contraseña debe tener al menos 5 caracteres")
-    
+
     return(
         <main className='auth-screen'>
             <form onSubmit={handleSubmitForm} className='auth-form'>
