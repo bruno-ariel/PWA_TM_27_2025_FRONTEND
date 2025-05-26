@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
+import { AuthContext } from '../Context/AuthContext'
 
 const LoginScreen = () => {
-    const navigate = useNavigate();
+    const {login, isAuthenticatedState} = useContext(AuthContext)
+    console.log(isAuthenticatedState)
+
     const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
-    const url = new URLSearchParams(window.location.search) 
+    const url = new URLSearchParams(window.location.search)
+
+    const navigate = useNavigate()
+
     if(url.get('verified')){
         alert('tu cuenta ha sido verificada')
     }
@@ -22,7 +28,8 @@ const LoginScreen = () => {
         })
             const data = await response.json()
             console.log(data)
-            sessionStorage.setItem('access_token', data.data.access_token)
+
+            login(data.data.access_token)
             navigate("/home")
         }
         catch(error){
