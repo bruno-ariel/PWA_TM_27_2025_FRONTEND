@@ -28,7 +28,7 @@ const LoginScreen = () => {
             const data = await response.json()
             console.log(data)
 
-            login(data.access_token)
+            login(data.data.acces_token)
             navigate("/home")
         }
         catch(error){
