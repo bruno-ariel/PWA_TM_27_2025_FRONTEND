@@ -4,43 +4,52 @@ import ENVIROMENT from '../utils/constants/enviroments'
 import { Link , useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
 
+import React, { useContext, useState } from 'react'
+import useForm from '../hooks/useForm'
+import ENVIROMENT from '../utils/constants/enviroments'
+import { Link , useNavigate } from 'react-router-dom'
+import { AuthContext } from '../Context/AuthContext'
+
 const LoginScreen = () => {
 
-    const {login, isAuthenticatedState} = useContext(AuthContext)
+    const {login , isAuthenticatedState } = useContext(AuthContext)
     console.log(isAuthenticatedState)
 
-    const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
-    const url = new URLSearchParams(window.location.search)
+    const {form_state, handleChangeInput} = useForm({email:"", password:""})
+    const url = new URLSearchParams(window.location.search) 
     const navigate = useNavigate()
     if(url.get('verified')){
-        alert('tu cuenta ha sido verificada')
+        alert('Cuenta verificada')
     }
-    const handleSubmitForm = async (e) => {
+    const handleSubmitForm = async (e) =>{
         try{
             e.preventDefault()
-            const response = await fetch(`${ENVIROMENT.API_URL}/api/auth/login`, {
+            const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
                 method: 'POST',
-                headers: {
+                headers:{
                     'Content-Type': 'application/json'
             },
                 body: JSON.stringify(form_state)
         })
             const data = await response.json()
-            console.log(data)
+
             login(data.data.access_token)
-            navigate("/home")
+            navigate('/home')
         }
         catch(error){
-            console.error('error al loguear', error)
+            console.error("error al loguear",error)
         }
     }
     const errores = {
-        email: [],
-        password: []
+        email: [
+        ],
+        password: [
+        ]
     }
     form_state.email && form_state.email.length > 30 && errores.email.push('El email no puede superar los 30 caracteres')
     form_state.email && form_state.email.length < 5 && errores.email.push('El email debe tener al menos 5 caracteres')
     form_state.password && form_state.password.length < 5 && errores.password.push("La contraseña debe tener al menos 5 caracteres")
+    
     return(
         <main className='auth-screen'>
             <form onSubmit={handleSubmitForm} className='auth-form'>
