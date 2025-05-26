@@ -18,7 +18,7 @@ const LoginScreen = () => {
     const handleSubmitForm = async (e) =>{
         try{
             e.preventDefault()
-            const response = await fetch(`${ENVIROMENT.API_URL}'/api/auth/login`, {
+            const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
                 method: 'POST',
                 headers:{
                     'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ const LoginScreen = () => {
                 body: JSON.stringify(form_state)
         })
             const data = await response.json()
-
+            console.log(data)
             login(data.data.access_token)
             navigate('/home')
         }
