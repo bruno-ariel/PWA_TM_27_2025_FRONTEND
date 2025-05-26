@@ -27,15 +27,9 @@ const LoginScreen = () => {
         })
             const data = await response.json()
             console.log(data)
-        if (response.ok && data?.data?.access_token){
-            login(data.data.access_token)
+
+            login(data.access_token)
             navigate("/home")
-        }
-        else{    
-            if(data?.data?.error){
-                alert(data.data.error)
-            }
-        }
         }
         catch(error){
             console.error('error al loguear', error)
