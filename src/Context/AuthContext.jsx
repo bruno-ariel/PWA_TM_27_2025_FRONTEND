@@ -10,7 +10,7 @@ export const AuthContextProvider = ({children}) => {
         setIsAuthenticatedState(true)
     }
     return (
-        <AuthContext.Provider value={{isAuthenticatedState , login}}>
+        <AuthContext.Provider value={{isAuthenticatedState , login }}>
             {children}
         </AuthContext.Provider>
     )

@@ -5,14 +5,13 @@ import { Link , useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
 
 const LoginScreen = () => {
+
     const {login, isAuthenticatedState} = useContext(AuthContext)
     console.log(isAuthenticatedState)
 
     const { form_state, handleChangeInput } = useForm ({ email: "", password: "" })
     const url = new URLSearchParams(window.location.search)
-
     const navigate = useNavigate()
-
     if(url.get('verified')){
         alert('tu cuenta ha sido verificada')
     }
@@ -28,9 +27,15 @@ const LoginScreen = () => {
         })
             const data = await response.json()
             console.log(data)
-
+        if (response.ok && data?.data?.access_token){
             login(data.data.access_token)
             navigate("/home")
+        }
+        else{    
+            if(data?.data?.error){
+                alert(data.data.error)
+            }
+        }
         }
         catch(error){
             console.error('error al loguear', error)
