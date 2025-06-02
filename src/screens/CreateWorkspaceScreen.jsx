@@ -10,6 +10,9 @@ const CreateWorkspaceScreen = () => {
     const {handleChangeInput, form_state} = useForm({name: ''})
     const handleCreateWorkspace = async (e) => {
         e.preventDefault()
+
+        console.log(typeof getAuthentitedHeaders); // debería imprimir "function"
+        console.log(getAuthentitedHeaders()); // debería mostrar el objeto con los headers
         const response = await fetch(ENVIROMENT.API_URL + '/api/workspace', {
             method: 'POST',
             headers: getAuthentitedHeaders(),
