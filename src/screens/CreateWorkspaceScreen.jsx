@@ -19,7 +19,7 @@ const CreateWorkspaceScreen = () => {
             body: JSON.stringify(form_state)
         })
         const data = await response.json()
-        navigate('/home')
+        navigate('/home', { replace: true })
     }
     return (
     <div>
