@@ -14,39 +14,24 @@ const LoginScreen = () => {
     if(url.get('verified')){
         alert('Cuenta verificada')
     }
-    const handleSubmitForm = async (e) => {
-    try {
-        e.preventDefault()
-        const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
+    const handleSubmitForm = async (e) =>{
+        try{
+            e.preventDefault()
+            const response = await fetch(ENVIROMENT.API_URL + '/api/auth/login', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json'
             },
-            body: JSON.stringify(form_state)
+                body: JSON.stringify(form_state)
         })
-
-        // Verificar si la respuesta no es exitosa
-        if (!response.ok) {
-            const errorData = await response.json()
-            throw new Error(errorData.message || 'Error al iniciar sesión')
+            const data = await response.json()
+            login(data.data.access_token)
+            navigate('/home')
         }
-
-        const data = await response.json()
-        
-        // Verificar si la respuesta tiene el token
-        if (!data.access_token && !data.data?.access_token) {
-            throw new Error('La respuesta no contiene un token de acceso')
+        catch(error){
+            console.error("error al loguear",error)
         }
-
-        // Usar el token (ya sea en data.access_token o data.data.access_token)
-        const token = data.access_token || data.data.access_token
-        login(token)
-        navigate('/home')
-    } catch(error) {
-        console.error("Error al loguear", error)
-        alert(error.message || 'Ocurrió un error al iniciar sesión')
     }
-}
     const errores = {
         email: [],
         password: []
