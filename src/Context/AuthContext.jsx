@@ -6,8 +6,8 @@ export const AuthContextProvider = ({children}) => {
     const isAuthenticated = Boolean(sessionStorage.getItem('access_token'))
     const [isAuthenticatedState, setIsAuthenticatedState] = useState(isAuthenticated)
     const login = (acces_token) => {
-    sessionStorage.setItem('access_token', acces_token)
-    setIsAuthenticatedState(true)
+        sessionStorage.setItem('access_token', acces_token)
+        setIsAuthenticatedState(true)
     }
     return (
         <AuthContext.Provider value={{isAuthenticatedState , login }}>

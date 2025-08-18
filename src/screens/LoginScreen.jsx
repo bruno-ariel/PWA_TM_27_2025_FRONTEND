@@ -5,7 +5,6 @@ import { Link , useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
 
 const LoginScreen = () => {
-
     const {login , isAuthenticatedState } = useContext(AuthContext)
     console.log(isAuthenticatedState)
 

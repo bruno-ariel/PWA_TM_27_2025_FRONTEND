@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ENVIROMENT from '../utils/constants/enviroments'
-import { getAuthentitedHeaders } from '../fetching/customHeaders'
+import { getAuthenticatedHeaders } from '../fetching/customHeaders'
 import { useFetch } from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
 import Modal from '../Components/Modal'
@@ -29,7 +29,7 @@ const HomeScreen = () => {
         try {
             await fetch(ENVIROMENT.API_URL + '/api/workspace', {
                 method: 'POST',
-                headers: getAuthentitedHeaders(),
+                headers: getAuthenticatedHeaders(),
                 body: JSON.stringify({ name: form_state.name }),
             });
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import useForm from '../hooks/useForm'
 import ENVIROMENT from '../utils/constants/enviroments'
-import { getAuthentitedHeaders } from '../fetching/customHeaders'
+import { getAuthenticatedHeaders } from '../fetching/customHeaders'
 import { useParams } from 'react-router-dom'
 
 
@@ -17,7 +17,7 @@ const CreateChannelScreen = () => {
         try {
             const response = await fetch(ENVIROMENT.API_URL + `/api/channel/${workspace_id}`, {
                 method: 'POST',
-                headers: getAuthentitedHeaders(),
+                headers: getAuthenticatedHeaders(),
                 body: JSON.stringify(form_state)
             })
             const data = await response.json()

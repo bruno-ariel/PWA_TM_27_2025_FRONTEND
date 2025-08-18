@@ -2,7 +2,7 @@ import React from 'react'
 import useForm from '../hooks/useForm'
 import { useFetch } from '../hooks/useFetch'
 import ENVIROMENT from '../utils/constants/enviroments'
-import { getAuthentitedHeaders } from '../fetching/customHeaders'
+import { getAuthenticatedHeaders } from '../fetching/customHeaders'
 import { useNavigate } from 'react-router-dom'
 
 const CreateWorkspaceScreen = () => {
@@ -11,11 +11,11 @@ const CreateWorkspaceScreen = () => {
     const handleCreateWorkspace = async (e) => {
         e.preventDefault()
 
-        console.log(typeof getAuthentitedHeaders); // debería imprimir "function"
-        console.log(getAuthentitedHeaders()); // debería mostrar el objeto con los headers
+        console.log(typeof getAuthenticatedHeaders); // debería imprimir "function"
+        console.log(getAuthenticatedHeaders()); // debería mostrar el objeto con los headers
         const response = await fetch(ENVIROMENT.API_URL + '/api/workspace', {
             method: 'POST',
-            headers: getAuthentitedHeaders(),
+            headers: getAuthenticatedHeaders(),
             body: JSON.stringify(form_state)
         })
         const data = await response.json()

@@ -2,7 +2,7 @@ import React, { useState , useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import ENVIROMENT from '../utils/constants/enviroments'
-import { getAuthentitedHeaders } from '../fetching/customHeaders'
+import { getAuthenticatedHeaders } from '../fetching/customHeaders'
 import useForm from '../hooks/useForm'
 import Modal from '../Components/Modal'
 import { AddIcon } from '../Icons'
@@ -14,7 +14,7 @@ const WorkspaceScreen = () => {
         ENVIROMENT.API_URL + `/api/channel/${workspace_id}`,
         {
             method: "GET",
-            headers: getAuthentitedHeaders(),
+            headers: getAuthenticatedHeaders(),
         }
     );
 
