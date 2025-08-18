@@ -26,11 +26,6 @@ const LoginScreen = () => {
                 body: JSON.stringify(form_state)
         })
             const data = await response.json()
-            console.log(data)
-            if(!data.ok){
-                alert(data.message || 'Error al loguear')
-                return
-            }            
             login(data.data.access_token)
             navigate('/home')
         }

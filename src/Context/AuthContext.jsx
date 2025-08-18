@@ -1,12 +1,12 @@
-import { useState , createContext , useEffect} from "react"
+import { createContext , useEffect , useState } from "react"
 
 export const AuthContext = createContext()
 
 export const AuthContextProvider = ({children}) => {
     const isAuthenticated = Boolean(sessionStorage.getItem('access_token'))
     const [isAuthenticatedState, setIsAuthenticatedState] = useState(isAuthenticated)
-    const login = (access_token) => {
-    sessionStorage.setItem('access_token', access_token)
+    const login = (acces_token) => {
+    sessionStorage.setItem('access_token', acces_token)
     setIsAuthenticatedState(true)
     }
     return (
