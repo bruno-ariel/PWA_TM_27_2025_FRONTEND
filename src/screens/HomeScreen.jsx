@@ -15,7 +15,7 @@ const HomeScreen = () => {
         refetch 
     } = useFetch(ENVIROMENT.API_URL + '/api/workspace', {
         method: 'GET',
-        headers: getAuthentitedHeaders()
+        headers: getAuthenticatedHeaders()
     });
 
     const [showModal, setShowModal] = useState(false);
