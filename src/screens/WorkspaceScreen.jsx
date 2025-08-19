@@ -28,7 +28,7 @@ const WorkspaceScreen = () => {
 
         await fetch(ENVIROMENT.API_URL + `/api/channel/${workspace_id}`, {
             method: 'POST',
-            headers: getAuthentitedHeaders(),
+            headers: getAuthenticatedHeaders(),
             body: JSON.stringify({ name: form_state.name }),
         });
 
